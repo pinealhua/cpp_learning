@@ -8,6 +8,9 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-Wall",
+                "-Wextra",
+                "-std=c++17",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
@@ -22,7 +25,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "编译器: g++.exe"
+            "detail": "使用 PATH 中的 g++ 编译器"
         }
     ]
 }
