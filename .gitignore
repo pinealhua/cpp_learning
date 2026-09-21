@@ -1,0 +1,71 @@
+# =========================
+# C / C++ 编译产物
+# =========================
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# 调试符号 / 中间文件
+*.pdb
+*.ilk
+*.exp
+*.idb
+
+# =========================
+# 构建目录
+# =========================
+build/
+bin/
+obj/
+out/
+cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# =========================
+# VS Code
+# =========================
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+# =========================
+# Visual Studio
+# =========================
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# =========================
+# 临时文件
+# =========================
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*~
+
+# =========================
+# Windows
+# =========================
+Thumbs.db
+Desktop.ini
+
+# =========================
+# 敏感配置
+# =========================
+.env
+.env.*
