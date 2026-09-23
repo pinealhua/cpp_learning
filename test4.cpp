@@ -71,14 +71,83 @@ Robot robot;自动初始化了
 Robot robot1(2.5);
 Robot robot2(5.0); 把括号里面的参数交给构造函数
 
+这里Robot构造函数名字要和创建类的名字完全一样，且前面没有返回类型
+
+如果自己写了可以传参的构造函数，在创建一个类的对象的时候一定要传参进去
+如果不想麻烦，可以在一个类里面写两个构造函数
+
+class Robot
+{
+public:
+    double speed;
+    bool motor_on;
+
+    Robot()
+    {
+        speed = 0.0;
+        motor_on = false;
+    }
+
+    Robot(double initial_speed)
+    {
+        speed = initial_speed;
+        motor_on = true;
+    }
+
+    void printStatus()
+    {
+        std::cout << speed << std::endl;
+        std::cout << motor_on << std::endl;
+    }
+};
+这样Robot robot1;  Robot robot2(3.0);都合法  函数名字一样，但参数不同，C++ 根据你传了什么参数来决定调用哪个
+
+
+class Robot
+{
+public:
+    double speed;
+    bool motor_on;
+
+    Robot()
+        : speed(0.0), motor_on(false)
+    {
+    }
+
+    Robot(double initial_speed)
+        : speed(initial_speed), motor_on(true)
+    {
+    }
+};
+
+Robot(double initial_speed)
+    : speed(initial_speed), motor_on(true)   
+就是用initial_speed初始化speed，用true初始化motor_on
+创建成员的时候直接把初值赋给他
+赋完值之后函数还可以进行别的操作比如说打印
+
+
 */
 
 #include <iostream>
 class Robot
 {
-    public:
-double speed;
-bool motor_on;
+   private:
+    double speed;
+    bool motor_on;
+
+ public:
+    Robot()
+    {
+        speed=0;
+        motor_on=false;
+    }
+    Robot(double initial_speed)
+    :speed(initial_speed),motor_on(true)
+    {
+        std::cout<<"Robot_start"<<std::endl;
+    }
+
 
 void start()
 {
@@ -101,11 +170,14 @@ std::cout<<speed<<std::endl;
 
 };
 Robot robot_test;
+Robot robot_test2(3.0);
 int main()
-{
-    robot_test.start();
-    robot_test.stop();
+{   
     robot_test.printStatus();
-
+ //   robot_test.start();
+ //   robot_test.printStatus();
+ //   robot_test.stop();
+    
+    robot_test2.printStatus();
     return 0;
 }
