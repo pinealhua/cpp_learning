@@ -129,6 +129,33 @@ Robot(double initial_speed)
 
 */
 
+/*
+this指针 指向当前正在调用这个成员函数的对象
+class Robot
+{
+private:
+    double speed;
+
+public:
+    void setSpeed(double new_speed)
+    {
+        speed = new_speed;
+    }
+};
+调用setspeed函数时等价于 this->speed = new_speed就是说我的这个类的speed被new_speed赋值
+当这个类有多个对象时 比如robot1和robot2。  robot1.setSpeed(3.0); this就是robot1的
+所以同一个成员函数可以修改不同对象的各自成员变量，每个对象都能操作自己的数据。
+
+当参数名和成员变量名字一样的时候，一定要写this
+void setSpeed(double speed)
+{
+    this->speed = speed;
+}
+这里this->speed表示当前对象自己的成员变量speed  右边的是函数参数speed
+把传进来的 speed，赋给当前对象自己的 speed。
+
+为什么是this->speed 理解成 Robot* this;通过指向当前robot的指针，访问成员speed
+*/
 #include <iostream>
 class Robot
 {
