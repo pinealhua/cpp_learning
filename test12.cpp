@@ -109,6 +109,11 @@ public:
 因为这个时候lambda想要使用Robot对象里面的speed，就要把this捕获进来
 std::cout << speed; 本质上就是 std::cout << this->speed;
 
+[this]到底捕获了什么
+捕获的不是整个对象，捕获的是当前对象的this指针，还是this->Robot对象
+所以lambda内部还是this->speed this->stop()
+但是对象一定要活着，因为[this]意味着里面保存了this的地址
+如果对象被销毁了之后再调用lambda，那么this就会变成无效地址，需要管理生命周期
 
 
 
